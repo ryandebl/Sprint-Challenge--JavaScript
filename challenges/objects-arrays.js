@@ -124,7 +124,8 @@ displayNames will be an array of strings, and each string should follow this pat
 
 */
 const displayNames = [];
-
+zooAnimals.forEach((animal) => {
+  displayNames.push(`Name: ${animal.animal_name}, ${animal.scientific_name}`)})
 console.log(displayNames);
 
 /* Request 2: .map()
@@ -135,6 +136,8 @@ pattern: "jackal, asiatic". Log the resut.
 */
 
 const lowCaseAnimalNames = [];
+zooAnimals.map((animal) => {
+  zooAnimals.map((animal) => animal.animal_name.toLowerCase()).forEach((animal) => lowCaseAnimalNames.push(animal));
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -143,6 +146,7 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 const lowPopulationAnimals = [];
+zooAnimals.filter((animal) => animal.population < 5).forEach((animal) => lowPopulationAnimals.push(animal));
 console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
@@ -152,6 +156,7 @@ a callback (which itself takes two args), and an initial value for the count.
 
 */
 const populationTotal = 0;
+populationTotal += zooAnimals.reduce((acc, animal) => acc + animal.population, 0);
 console.log(populationTotal);
 
 
